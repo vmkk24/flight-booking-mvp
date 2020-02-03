@@ -1,0 +1,34 @@
+{
+    "locationList": [
+        {
+            "locationId": 1,
+            "locationName": "Bangalore"
+        },
+        {
+            "locationId": 2,
+            "locationName": "Delhi"
+        }
+    ],
+    "flightList": [
+        {
+            "flightId": 1,
+            "flightName": "Air Asia",
+            "flightScheduleId": 2,
+            "scheduleDate": "27-4-20",
+            "availableSeats": 40,
+            "source": "delhi",
+            "destination": "Mumbai",
+            "fare": 2500
+        },
+        {
+            "flightId": 1,
+            "flightName": "Air India",
+            "flightScheduleId": 2,
+            "scheduleDate": "27-4-20",
+            "availableSeats": 40,
+            "source": "delhi",
+            "destination": "Mumbai",
+            "fare": 2600
+        }
+    ]
+}
