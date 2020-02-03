@@ -25,7 +25,8 @@ export class TrackTicketComponent implements OnInit {
     this.ticketErrorFlag = false;
     if (this.ticketId) {
       this.spinner = true;
-      this.api.getList(this.url.urlConfig().trackTicket).subscribe(detail => {
+      const param = `/${this.ticketId}`;
+      this.api.getList(this.url.urlConfig().trackTicket.concat(param)).subscribe(detail => {
         this.spinner = false;
         if (detail) {
           this.ticketDetail = detail;

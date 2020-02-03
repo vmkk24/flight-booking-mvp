@@ -58,7 +58,7 @@ export class DashboardComponent implements OnInit {
   */
   public searchFlight() {
     this.submitted = true;
-    if (this.searchForm.valid) {
+    if (this.searchForm.valid && !this.dobErrorFlag ) {
       this.searchForm.value.noOfPassengers = Number(this.searchForm.value.noOfPassengers);
       this.searchForm.value.date = this.validate.convertDate(this.searchForm.value.date);
       this.spinner = true;
@@ -82,7 +82,6 @@ export class DashboardComponent implements OnInit {
       this.spinner = false;
       if (location) {
         this.locationList = location;
-        console.log(this.locationList)
       }
     }, error => {
       this.spinner = false;

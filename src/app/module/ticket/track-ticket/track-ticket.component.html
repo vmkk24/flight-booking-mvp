@@ -40,13 +40,16 @@
                     <div class="col-md-4">
                         <div>Destination: <strong>{{ticketDetail?.destination}}</strong></div>
                     </div>
+                    <div class="col-md-4">
+                        <div>Status: <strong>{{ticketDetail?.status}}</strong></div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row" *ngIf="ticketDetail">
             <div class="details-container">
                 <h5>Passenger Details</h5>
-                <div class="row details" *ngFor="let passenger of ticketDetail?.passagerList">
+                <div class="row details" *ngFor="let passenger of ticketDetail?.passengers">
                     <div class="col-md-4">
                         <div>Name:  <strong>{{passenger.name}}</strong></div>
                     </div>
@@ -61,3 +64,4 @@
         </div>
     </div>
 </div>
+<app-spinner [spinner]="spinner"></app-spinner>

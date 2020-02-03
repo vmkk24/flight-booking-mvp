@@ -23,7 +23,7 @@ export interface TrackTicket {
     status: string;
     source: string;
     destination: string;
-    passagerList: Passenger[];
+    passengers: Passenger[];
 }
 export interface Passenger {
     name: string;
