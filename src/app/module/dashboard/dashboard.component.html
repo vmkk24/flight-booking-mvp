@@ -1,1 +1,130 @@
-<p>dashboard works!</p>
+<div class="section-center">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 col-md-offset-1">
+                <div class="booking-form">
+                    <form [formGroup]="searchForm" (ngSubmit)="searchFlight()">
+                        <div class="form-group">
+                            <div class="form-checkbox">
+                                <label for="roundtrip">
+                                    <input type="radio" id="roundtrip" name="flight-type" value="roundtrip" checked="checked">
+                                    <span></span>Roundtrip
+                                </label>
+                                <label for="one-way">
+                                    <input type="radio" id="one-way" name="flight-type" disabled>
+                                    <span></span>One way
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="form-label">
+                                        <label for="customerName">Flying from</label>
+                                    </span>
+                                    <select class="form-control" formControlName="source">
+                                        <option value="">--Select From --</option>
+                                        <option *ngFor="let location of locationList" value="{{location.locationId}}">{{location.locationName}}</option>
+                                    </select>
+                                    <span class="select-arrow"></span>
+                                    <div class="error"
+                                        *ngIf="submitted  && search.source.errors && search.source.errors.required ">
+                                        Flying from is <strong>required</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="form-label">
+                                        <label for="customerName">Flying to</label>
+                                    </span>
+                                    <select class="form-control" formControlName="destination">
+                                        <option value="">--Select To --</option>
+                                        <option *ngFor="let location of locationList" value="{{location.locationId}}">{{location.locationName}}</option>
+                                    </select>
+                                    <span class="select-arrow"></span>
+                                    <div class="error"
+                                        *ngIf="submitted  && search.destination.errors && search.destination.errors.required ">
+                                        Flying to is <strong>required</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span class="form-label">
+                                        <label for="date">Departing</label></span>
+                                        <input class="form-control" type="date" formControlName="date"  (change)="validateDOB($event)">
+                                    <div class="error"
+                                        *ngIf="submitted  && search.date.errors && search.date.errors.required ">
+                                        Departing is <strong>required</strong>
+                                    </div>
+                                    <div class="error" *ngIf="dobErrorFlag"> {{errorMessage}}</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span class="form-label">
+                                        <label for="noOfPassengers">Number of Passenger</label></span>
+                                    <input class="form-control" type="text" placeholder="Number of Passenger"
+                                        formControlName="noOfPassengers">
+                                    <div class="error"
+                                        *ngIf="submitted  && search.noOfPassengers.errors && search.noOfPassengers.errors.required ">
+                                        Number of Passenger is <strong>required</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <span class="form-label">
+                                        <label for="travelType">Travel class</label></span>
+                                    <select class="form-control" formControlName="travelType">
+                                        <option value="">--Select Travel --</option>
+                                        <option value="Economy class">Economy class</option>
+                                        <option value="Business class">Business class</option>
+                                        <option value="First class">First class</option>
+                                    </select>
+                                    <span class="select-arrow"></span>
+                                    <div class="error"
+                                        *ngIf="submitted  && search.travelType.errors && search.travelType.errors.required ">
+                                        Travel class is <strong>required</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-btn">
+                            <button class="submit-btn">Show flights</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="booking-cta">
+                    <h1>Book your flight today</h1>
+                    <p>Stop Searching. Start Traveling. A Symbol of Freedom. Southwest Airlines. The Low Fare Airline.
+                    How do we love you? Let us count the ways . .</p>
+                </div>
+                <div class="row row-background" *ngFor="let flight of flightList">
+                    <div class="col-md-3 pt-3">{{flight.flightName}}</div>
+                    <div class="col-md-2 pt-3">Time: {{flight.scheduleDate}}</div>
+                    <div class="col-md-2 pt-3">Seats: {{flight.availableSeats}}</div>
+                    <div class="col-md-3 pt-3 text-align-center">
+                        <div>{{flight.source}}-{{flight.destination}}</div>
+                        <div>{{flight.fare | currency: "INR"}}</div>
+                    </div>
+                    <div class="col-md-2 pt-3">
+                        <button class="btn btn-primary btn-book" (click)="selectFlight(flight)">Book</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,17 +1,17 @@
-export interface User {
-    firstName: string;
-    email: string;
-    gender: string;
-    username: string;
-    password: string;
-    acceptTerms: boolean;
-    id: number;
+export interface FlightList {
+    flightId: number;
+    flightName: string;
+    flightScheduleId: number;
+    scheduleDate: string;
+    availableSeats: number;
+    source: string;
+    destination: string;
+    fare: number;
 }
 
-export interface CurrentUser {
-    customerId: number;
-    customerName: string;
-    type: string;
+export interface Destination {
+    locationId: number;
+    locationName: string;
 }
 
 export interface DropdownOption {
