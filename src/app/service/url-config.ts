@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 @Injectable()
 export class UrlConfig {
-    serverConfig = false;
-    private apiHost = 'http://10.117.189.86:8085/flightbooking/';
-    private shoppingCardtHost = 'http://10.117.189.86:8084/shoppingcart/';
+    serverConfig = true;
+    private apiHost = 'http://10.117.189.181:8080/flightbooking/';
     private apiMock = 'http://localhost:3000/';
     url = {};
 
@@ -13,9 +12,6 @@ export class UrlConfig {
             getDestination: this.apiMock + 'locationList',
             getFlights: this.apiMock + 'flightList',
             trackTicket:  this.apiMock + 'bookingDetail',
-            userRegister: 'http://10.117.189.86:8085/creditcard/creditcards',
-            products: 'http://10.117.189.81:8085/shoppingcart/' + 'products',
-
         };
     }
 
@@ -25,13 +21,6 @@ export class UrlConfig {
             getDestination: this.apiHost + 'locations',
             getFlights: this.apiHost + 'flights',
             trackTicket: this.apiHost + 'creditcards',
-            shoppingLogin: this.shoppingCardtHost + 'customers/login',
-            products: this.shoppingCardtHost + 'products',
-            buyProduct: this.apiHost + 'creditcards/customers/',
-            validateOtp: this.apiHost + 'creditcard/creditcards/',
-            getMyOrder: this.shoppingCardtHost + 'customers/',
-            transactions: this.apiHost + 'transactions/',
-            purchaseProduct: this.shoppingCardtHost + 'products/customer/',
         };
     }
     /* return url */

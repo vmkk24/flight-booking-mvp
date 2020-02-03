@@ -59,17 +59,14 @@ export class DashboardComponent implements OnInit {
   public searchFlight() {
     this.submitted = true;
     if (this.searchForm.valid) {
-      this.searchForm.value.source = Number(this.searchForm.value.source);
-      this.searchForm.value.destination = Number(this.searchForm.value.destination);
       this.searchForm.value.noOfPassengers = Number(this.searchForm.value.noOfPassengers);
       this.searchForm.value.date = this.validate.convertDate(this.searchForm.value.date);
       this.spinner = true;
       /* Api call*/
-      this.api.getList(this.url.urlConfig().getFlights)
-     // this.api.postCall(this.url.urlConfig().userRegister, this.searchForm.value, 'post')
+      this.api.postCall(this.url.urlConfig().getFlights, this.searchForm.value, 'post')
         .subscribe(list => {
           this.spinner = false;
-          this.flightList = list;
+          this.flightList = list.flightList;
         },
           error => {
             this.spinner = false;
@@ -85,6 +82,7 @@ export class DashboardComponent implements OnInit {
       this.spinner = false;
       if (location) {
         this.locationList = location;
+        console.log(this.locationList)
       }
     }, error => {
       this.spinner = false;

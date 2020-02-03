@@ -207,3 +207,7 @@
 .full-height {
 	height: 100vh;
 }
+.list-font-size {
+	font-size: 12px;
+	font-weight: 600;
+}

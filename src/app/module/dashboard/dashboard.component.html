@@ -24,7 +24,7 @@
                                     </span>
                                     <select class="form-control" formControlName="source">
                                         <option value="">--Select From --</option>
-                                        <option *ngFor="let location of locationList" value="{{location.locationId}}">{{location.locationName}}</option>
+                                        <option *ngFor="let location of locationList" value="{{location.locationName}}">{{location.locationName}}</option>
                                     </select>
                                     <span class="select-arrow"></span>
                                     <div class="error"
@@ -40,7 +40,7 @@
                                     </span>
                                     <select class="form-control" formControlName="destination">
                                         <option value="">--Select To --</option>
-                                        <option *ngFor="let location of locationList" value="{{location.locationId}}">{{location.locationName}}</option>
+                                        <option *ngFor="let location of locationList" value="{{location.locationName}}">{{location.locationName}}</option>
                                     </select>
                                     <span class="select-arrow"></span>
                                     <div class="error"
@@ -86,9 +86,8 @@
                                         <label for="travelType">Travel class</label></span>
                                     <select class="form-control" formControlName="travelType">
                                         <option value="">--Select Travel --</option>
-                                        <option value="Economy class">Economy class</option>
-                                        <option value="Business class">Business class</option>
-                                        <option value="First class">First class</option>
+                                        <option value="Economy">Economy class</option>
+                                        <option value="Business">Business class</option>
                                     </select>
                                     <span class="select-arrow"></span>
                                     <div class="error"
@@ -110,9 +109,9 @@
                     <p>Stop Searching. Start Traveling. A Symbol of Freedom. Southwest Airlines. The Low Fare Airline.
                     How do we love you? Let us count the ways . .</p>
                 </div>
-                <div class="row row-background" *ngFor="let flight of flightList">
-                    <div class="col-md-3 pt-3">{{flight.flightName}}</div>
-                    <div class="col-md-2 pt-3">Time: {{flight.scheduleDate}}</div>
+                <div class="row row-background list-font-size" *ngFor="let flight of flightList">
+                    <div class="col-md-2 pt-3">{{flight.flightName}}</div>
+                    <div class="col-md-3 pt-3">{{flight.departureTime}} - {{flight.arrivalTime}} </div>
                     <div class="col-md-2 pt-3">Seats: {{flight.availableSeats}}</div>
                     <div class="col-md-3 pt-3 text-align-center">
                         <div>{{flight.source}}-{{flight.destination}}</div>
@@ -122,6 +121,9 @@
                         <button class="btn btn-primary btn-book" (click)="selectFlight(flight)">Book</button>
                     </div>
                     
+                </div>
+                <div class="row row-background text-align-center" *ngIf="!flightList?.length && submitted">
+                    No flights available
                 </div>
             </div>
         </div>
