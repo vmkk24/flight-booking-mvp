@@ -13,24 +13,30 @@ export interface Destination {
     locationId: number;
     locationName: string;
 }
-
-export interface DropdownOption {
-    name: string;
-    value: string;
+export interface TrackTicket {
+    ticketId: number;
+    bookingDate: string;
+    emailId: string;
+    phoneNumber: number;
+    paymentType: string;
+    totalFare: number;
+    status: string;
+    source: string;
+    destination: string;
+    passagerList: Passenger[];
 }
-
+export interface Passenger {
+    name: string;
+    age: number;
+    aadharNumber: number;
+}
 export interface ModalButton {
     name: string;
 }
-export interface Product {
-    productId: number;
-    productName: string;
-    category: string;
-    price: number;
-}
+
 export const paymentOptions = [
-    {id: 1, name: 'Debit/Credit card'},
-    {id: 2, name: 'paytm'},
-    {id: 3, name: 'G-Pay'},
+    // { id: 1; name: 'Debit/Credit card' };
+    // { id: 2; name: 'paytm' };
+    // { id: 3; name: 'G-Pay' };
   ];
 

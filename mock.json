@@ -30,5 +30,28 @@
             "destination": "Mumbai",
             "fare": 2600
         }
-    ]
+    ],
+    "bookingDetail": {
+        "ticketId": 1,
+        "bookingDate": "23-4-20",
+        "emailId": "test",
+        "phoneNumber": 565656565,
+        "paymentType": "g-pay",
+        "totalFare": 50000,
+        "status":"confimed",
+        "source": "delhi",
+        "destination": "Chennai",
+        "passagerList": [
+            {
+                "name": "Test",
+                "age": 23,
+                "aadharNumber": 34534534534
+            },
+            {
+                "name": "tes1",
+                "age": 37,
+                "aadharNumber": 5446456
+            }
+        ]
+    }
 }

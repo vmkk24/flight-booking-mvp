@@ -12,7 +12,7 @@ export class UrlConfig {
         return this.url = {
             getDestination: this.apiMock + 'locationList',
             getFlights: this.apiMock + 'flightList',
-            shoppingLogin: 'http://10.117.189.86:8084/' + 'shoppingcart/customers/login',
+            trackTicket:  this.apiMock + 'bookingDetail',
             userRegister: 'http://10.117.189.86:8085/creditcard/creditcards',
             products: 'http://10.117.189.81:8085/shoppingcart/' + 'products',
 
@@ -24,7 +24,7 @@ export class UrlConfig {
         return this.url = {
             getDestination: this.apiHost + 'locations',
             getFlights: this.apiHost + 'flights',
-            userRegister: this.apiHost + 'creditcards',
+            trackTicket: this.apiHost + 'creditcards',
             shoppingLogin: this.shoppingCardtHost + 'customers/login',
             products: this.shoppingCardtHost + 'products',
             buyProduct: this.apiHost + 'creditcards/customers/',
