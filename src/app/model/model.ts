@@ -28,5 +28,9 @@ export interface Product {
     category: string;
     price: number;
 }
-
+export const paymentOptions = [
+    {id: 1, name: 'Debit/Credit card'},
+    {id: 2, name: 'paytm'},
+    {id: 3, name: 'G-Pay'},
+  ];
 
