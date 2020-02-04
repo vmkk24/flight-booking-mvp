@@ -22,7 +22,7 @@ export class UrlConfig {
         return this.url = {
             getDestination: this.apiHost + 'locations',
             getFlights: this.apiHost + 'flights',
-            trackTicket: this.apiHost + 'bookingDetail',
+            trackTicket: this.apiHost + 'tickets',
             ticketBook: this.apiHost + 'tickets',
 
         };

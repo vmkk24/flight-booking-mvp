@@ -32,7 +32,7 @@
 }
 .toggle-height{
     min-height: 60px;
-    background: #ff6200;
+    background: #4fa3e3;
 }
 .fixed-top {
     z-index: 1;
@@ -46,15 +46,15 @@
 
 }
 .menu-container a{
-	background-color: #fff;
-    border: 2px solid #f34f4f;
-    color: #f34f4f;
+	background-color: #4fa3e3;
+    border: 2px solid #4fa3e3;
+    color: #fff;
     cursor: pointer;
     z-index: 9;
     font-size: 12px;
 } 
 .menu-container a:hover{
-    background-color: #f34f4f;
+    background-color: #4fa3e3;
     border: 2px solid #f34f4f;
     color: #fff;
     

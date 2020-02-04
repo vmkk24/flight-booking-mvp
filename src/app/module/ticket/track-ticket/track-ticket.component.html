@@ -62,10 +62,17 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mt-2" style="float: right;">
+        <div *ngIf="ticketDetail && ticketDetail?.status === 'BOOKED'" class="col-md-4 mt-2" style="float: right;">
             <button class="btn btn-primary track-btn" (click)="cancelTicket()">Cancel Ticket</button>
         </div>
     </div>
 </div>
 
 <app-spinner [spinner]="spinner"></app-spinner>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+<p-toast position="top-center"></p-toast>

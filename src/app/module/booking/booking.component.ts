@@ -98,8 +98,10 @@ export class BookingComponent implements OnInit {
       // tslint:disable-next-line:no-string-literal
       if (resp['statusCode'] === 200) {
         // tslint:disable-next-line:no-string-literal
-        this.messageService.add({ severity: 'success', summary: 'success', detail: resp['message'] + resp['ticketId'] });
-
+        this.messageService.add({ severity: 'success', summary: 'success', detail: resp['ticketId'] + resp['message'] });
+        setTimeout(() => {
+          this.router.navigate(['/ticket-track']);
+        }, 5000);
       }
     });
   }

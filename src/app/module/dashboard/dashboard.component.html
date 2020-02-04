@@ -1,7 +1,7 @@
 <div class="section-center">
     <div class="container full-height">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-1">
+        <div class="row mt-2">
+            <div class="col-md-5 col-md-offset-1">
                 <div class="booking-form">
                     <form [formGroup]="searchForm" (ngSubmit)="searchFlight()">
                         <div class="form-group">
@@ -103,11 +103,11 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="booking-cta">
                     <h1>Book your flight today</h1>
-                    <p>Stop Searching. Start Traveling. A Symbol of Freedom. Southwest Airlines. The Low Fare Airline.
-                    How do we love you? Let us count the ways . .</p>
+                    <h6 style="color: green">Stop Searching. Start Traveling. A Symbol of Freedom. Southwest Airlines. The Low Fare Airline.
+                    How do we love you? Let us count the ways . .</h6>
                 </div>
                 <div class="row row-background list-font-size" *ngFor="let flight of flightList">
                     <div class="col-md-2 pt-3">{{flight.flightName}}</div>
