@@ -4,6 +4,7 @@ import { BookingComponent } from './booking.component';
 import { BookingRoutingModule } from './booking-routing.module';
 import { SharedModuleModule } from 'src/app/shared/shared-module.module';
 import {DropdownModule} from 'primeng/dropdown';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
     declarations: [BookingComponent],
@@ -11,7 +12,8 @@ import {DropdownModule} from 'primeng/dropdown';
       CommonModule,
       BookingRoutingModule,
       SharedModuleModule,
-      DropdownModule
+      DropdownModule,
+      ToastModule
     ]
   })
   export class BookingModule { }

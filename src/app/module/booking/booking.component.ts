@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { paymentOptions } from 'src/app/model/model';
 import { Router } from '@angular/router';
-
+/**
+ * Importing third party primeNg components
+ */
+import { MessageService } from 'primeng/api';
 import { Service } from 'src/app/service/service';
 import { UrlConfig } from 'src/app/service/url-config';
 @Component({
@@ -23,7 +26,9 @@ export class BookingComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               public api: Service,
               private url: UrlConfig,
-              private router: Router
+              private router: Router,
+              private messageService: MessageService,
+
 
   ) { }
 
@@ -80,7 +85,7 @@ export class BookingComponent implements OnInit {
 
   bookTickets = () => {
     const data = {
-      flightScheduleId: this.userData.flightScheduleId,
+      flightScheduleId: this.userData.flightDetail.flightScheduleId,
       emailId: this.dynamicForm.value.email,
       phoneNumber: this.dynamicForm.value.phone,
       noOfPassengers: this.userData.noOfPassengers,
@@ -88,8 +93,14 @@ export class BookingComponent implements OnInit {
       totalFare: this.totalFare,
       passagerList: this.dynamicForm.value.tickets
     };
-    this.api.postCall(this.url.urlConfig().ticketBook, data, 'post').subscribe( temp => {
-      this.tempData = temp;
+    console.log('id', data.flightScheduleId);
+    this.api.postCall(this.url.urlConfig().ticketBook, data, 'post').subscribe( resp => {
+      // tslint:disable-next-line:no-string-literal
+      if (resp['statusCode'] === 200) {
+        // tslint:disable-next-line:no-string-literal
+        this.messageService.add({ severity: 'success', summary: 'success', detail: resp['message'] + resp['ticketId'] });
+
+      }
     });
   }
 }

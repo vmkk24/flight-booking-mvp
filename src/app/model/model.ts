@@ -35,8 +35,7 @@ export interface ModalButton {
 }
 
 export const paymentOptions = [
-    // { id: 1; name: 'Debit/Credit card' };
-    // { id: 2; name: 'paytm' };
-    // { id: 3; name: 'G-Pay' };
+    { id: 1, name: 'PAYTM' },
+    { id: 2, name: 'PHONEPE' }
   ];
 
