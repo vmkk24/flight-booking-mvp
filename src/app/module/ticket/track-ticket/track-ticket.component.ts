@@ -39,6 +39,10 @@ export class TrackTicketComponent implements OnInit {
     }
 
   }
+
+  cancelTicket = () => {
+
+  }
   ngOnInit() { }
 
 }

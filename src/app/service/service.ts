@@ -46,6 +46,14 @@ export class Service {
     );
   }
 
+  public delete(url: string): Observable<any> {
+    this.alertConfigDefaultValue();
+    return this.http.delete(url).pipe(
+      retry(1),
+      catchError(this.errorHandler.bind(this))
+    );
+  }
+
   /* Error handling */
   private errorHandler(error) {
     let errorMessage = '';
@@ -56,7 +64,7 @@ export class Service {
       /* Get server-side error */
       errorMessage = error.error.message ? error.error.message : 'Network error';
     }
-    this.alertConfig = this.modalConfig('Error', errorMessage, true, [{name: 'Ok'}]);
+    this.alertConfig = this.modalConfig('Error', errorMessage, true, [{ name: 'Ok' }]);
     return throwError(errorMessage);
   }
 

@@ -12,6 +12,8 @@ export class UrlConfig {
             getDestination: this.apiMock + 'locationList',
             getFlights: this.apiMock + 'flightList',
             trackTicket:  this.apiMock + 'bookingDetail',
+            ticketBook: this.apiHost + 'tickets',
+
         };
     }
 
@@ -20,7 +22,9 @@ export class UrlConfig {
         return this.url = {
             getDestination: this.apiHost + 'locations',
             getFlights: this.apiHost + 'flights',
-            trackTicket: this.apiHost + 'tickets',
+            trackTicket: this.apiHost + 'bookingDetail',
+            ticketBook: this.apiHost + 'tickets',
+
         };
     }
     /* return url */

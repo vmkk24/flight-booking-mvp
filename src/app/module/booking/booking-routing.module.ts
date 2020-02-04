@@ -5,7 +5,7 @@ import { BookingComponent } from './booking.component';
 
 const routes: Routes = [
   {
-    path: 'booking',
+    path: '',
     component: BookingComponent
   }
 ];
