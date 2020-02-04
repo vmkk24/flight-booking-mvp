@@ -1,18 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ConfirmationService } from 'primeng/api';
 
+import { HeaderComponent } from './shared/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModuleModule } from './shared/shared-module.module';
 import { AppComponent } from './app.component';
+import {MessageService} from 'primeng/api';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    SharedModuleModule,
   ],
-  providers: [],
+  providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,22 @@
+.section {
+	position: relative;
+	height: 100vh;
+}
+
+.section .section-center {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+#booking {
+	font-family: 'Lato', sans-serif;
+	background-image: url('../assets/img/background.jpg');
+	background-size: cover;
+	background-position: center;
+    color: #191a1e;
+    height: 100%;
+}

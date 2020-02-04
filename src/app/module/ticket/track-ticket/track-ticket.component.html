@@ -1,0 +1,78 @@
+<div class="section-center">
+    <div class="container top-10">
+        <div class="row">
+            <div class="col-md-offset-1">
+                <div class="booking-form">
+                    <h1>Track Your ticket here</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row track">
+            <div class="col-md-2">
+                <span class="track-heading">Enter Ticket ID</span></div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="ticketId" [(ngModel)]="ticketId">
+                <div class="error" *ngIf="ticketErrorFlag">Enter the ticket Id</div>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary track-btn" (click)="getTicketDetail()">Track the ticket</button>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="ticketDetail">
+            <div class="details-container">
+                <h5>Flight Details</h5>
+                <div class="row details">
+                    <div class="col-md-4">
+                        <div>Flight Name: <strong>{{ticketDetail?.flightName}}</strong> </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div>Booking Date: <strong>{{ticketDetail?.bookingDate}}</strong></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div>Total Fare: <strong>{{ticketDetail?.totalFare}}</strong></div>
+                    </div>
+                </div>
+                <div class="row details">
+                    <div class="col-md-4">
+                        <div>Source: <strong>{{ticketDetail?.source}}</strong></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div>Destination: <strong>{{ticketDetail?.destination}}</strong></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div>Status: <strong>{{ticketDetail?.status}}</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="ticketDetail">
+            <div class="details-container">
+                <h5>Passenger Details</h5>
+                <div class="row details" *ngFor="let passenger of ticketDetail?.passengers">
+                    <div class="col-md-4">
+                        <div>Name:  <strong>{{passenger.name}}</strong></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div>Age:  <strong>{{passenger.age}}</strong></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div>Adhaar Number:  <strong>{{passenger.aadharNumber}}</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="ticketDetail && ticketDetail?.status === 'BOOKED'" class="col-md-4 mt-2" style="float: right;">
+            <button class="btn btn-primary track-btn" (click)="cancelTicket()">Cancel Ticket</button>
+        </div>
+    </div>
+</div>
+
+<app-spinner [spinner]="spinner"></app-spinner>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+<p-toast position="top-center"></p-toast>

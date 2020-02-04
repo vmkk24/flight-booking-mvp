@@ -1,0 +1,48 @@
+.section-center{
+    height: 100vh;
+}
+.top-10{
+    position: relative;
+    top: 10%;
+}
+h1 {
+	font-size: 52px;
+	text-transform: uppercase;
+	color: #4fa3e3;
+	font-weight: 400;
+}
+.track{
+    background: #fff;
+    padding: 20px 5px;
+}
+.track-heading{
+    position: relative;
+    top: 5px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.track-btn{
+    background-color: #fff;
+    border: 2px solid #f34f4f;
+    color: #f34f4f;
+}
+.track-btn:hover{
+    background-color: #f34f4f;
+    border: 2px solid #f34f4f;
+    color: #fff;
+}
+.details-container{
+    margin: 10px 0px;
+    width: 100%;
+    background-color: #fff;
+}
+h5{
+    font-size: 16px;
+    padding: 5px 0 0 15px;
+    font-weight: 600;
+}
+
+.details{
+    margin: 14px 5px;
+    font-size: 14px;
+}
