@@ -20,9 +20,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">
-                                        <label for="customerName">Flying from</label>
+                                        <label for="source">Flying from</label>
                                     </span>
-                                    <select class="form-control" formControlName="source">
+                                    <select class="form-control" formControlName="source" id="source">
                                         <option value="">--Select From --</option>
                                         <option *ngFor="let location of locationList" value="{{location.locationName}}">{{location.locationName}}</option>
                                     </select>
@@ -36,9 +36,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">
-                                        <label for="customerName">Flying to</label>
+                                        <label for="destination">Flying to</label>
                                     </span>
-                                    <select class="form-control" formControlName="destination">
+                                    <select class="form-control" formControlName="destination" id="destination">
                                         <option value="">--Select To --</option>
                                         <option *ngFor="let location of locationList" value="{{location.locationName}}">{{location.locationName}}</option>
                                     </select>
@@ -55,7 +55,7 @@
                                 <div class="form-group">
                                     <span class="form-label">
                                         <label for="date">Departing</label></span>
-                                        <input class="form-control" type="date" formControlName="date"  (change)="validateDOB($event)">
+                                        <input class="form-control" type="date" formControlName="date" id="date" (change)="validateDOB($event)">
                                     <div class="error"
                                         *ngIf="submitted  && search.date.errors && search.date.errors.required ">
                                         Departing is <strong>required</strong>
@@ -71,7 +71,7 @@
                                     <span class="form-label">
                                         <label for="noOfPassengers">Number of Passenger</label></span>
                                     <input class="form-control" type="text" placeholder="Number of Passenger"
-                                        formControlName="noOfPassengers">
+                                        formControlName="noOfPassengers" id="noOfPassengers">
                                     <div class="error"
                                         *ngIf="submitted  && search.noOfPassengers.errors && search.noOfPassengers.errors.required ">
                                         Number of Passenger is <strong>required</strong>
@@ -84,7 +84,7 @@
                                 <div class="form-group">
                                     <span class="form-label">
                                         <label for="travelType">Travel class</label></span>
-                                    <select class="form-control" formControlName="travelType">
+                                    <select class="form-control" formControlName="travelType" id="travelType">
                                         <option value="">--Select Travel --</option>
                                         <option value="Economy">Economy class</option>
                                         <option value="Business">Business class</option>
@@ -106,7 +106,7 @@
             <div class="col-md-7">
                 <div class="booking-cta">
                     <h1>Book your flight today</h1>
-                    <h6 style="color: green">Stop Searching. Start Traveling. A Symbol of Freedom. Southwest Airlines. The Low Fare Airline.
+                    <h6>Stop Searching. Start Traveling. A Symbol of Freedom. Southwest Airlines. The Low Fare Airline.
                     How do we love you? Let us count the ways . .</h6>
                 </div>
                 <div class="row row-background list-font-size" *ngFor="let flight of flightList">

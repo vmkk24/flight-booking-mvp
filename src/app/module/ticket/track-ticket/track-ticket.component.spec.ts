@@ -5,13 +5,20 @@ import { Service } from 'src/app/service/service';
 import { UrlConfig } from 'src/app/service/url-config';
 import { TrackTicketComponent } from './track-ticket.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
+import { MessageService } from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
 
 describe('TrackTicketComponent', () => {
   let component: TrackTicketComponent;
   let fixture: ComponentFixture<TrackTicketComponent>;
   let api: Service;
-
+  let mockRouter = {
+    navigate: jasmine.createSpy('navigate')
+  };
   /* create mock data for testing */
   const MockUserService = {
     modalConfig: () => ({
@@ -56,14 +63,16 @@ describe('TrackTicketComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TrackTicketComponent ],
-      imports: [SharedModuleModule, HttpClientTestingModule],
+      imports: [SharedModuleModule, HttpClientTestingModule, RouterTestingModule],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [
         { provide: Service, useValue: MockUserService },
-        UrlConfig],
+        { provide: Router, useValue: mockRouter },
+        UrlConfig, MessageService, ConfirmationService],
     })
     .compileComponents();
     api = TestBed.get(Service);
+    mockRouter = TestBed.get(Router);
   }));
 
   beforeEach(() => {
