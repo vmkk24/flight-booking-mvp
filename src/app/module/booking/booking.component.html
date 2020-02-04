@@ -29,7 +29,7 @@
                                     </div>
                                     <div class="form-group col-4">
                                         <label>Number of Passengers</label><br />
-                                        {{userData.noOfPassengers}}
+                                        {{userData?.noOfPassengers}}
                                     </div>
                                 </div>
                             </div>
@@ -84,9 +84,9 @@
                             <div class="card-body">
                                 <h4>Fare Summary</h4>
                                 <label>Adults: </label>
-                                <span style="float: right;">{{userData.noOfPassengers}}</span><br />
+                                <span style="float: right;">{{userData?.noOfPassengers}}</span><br />
                                 <label>Ticket Price: </label>
-                                <span style="float: right;">{{userData.flightDetail.fare}}</span><br />
+                                <span style="float: right;">{{userData?.flightDetail.fare}}</span><br />
                                 <label>Total Fare: </label>
                                 <span style="float: right;">{{totalFare}}</span><br />
                             </div>

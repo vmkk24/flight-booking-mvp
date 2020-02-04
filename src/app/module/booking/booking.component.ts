@@ -27,22 +27,20 @@ export class BookingComponent implements OnInit {
               public api: Service,
               private url: UrlConfig,
               private router: Router,
-              private messageService: MessageService,
-
-
+              private messageService: MessageService
   ) { }
 
   ngOnInit() {
     this.userData = JSON.parse(sessionStorage.getItem('flightDetail'));
-    console.log('hi', this.userData);
-    this.totalFare = this.userData.noOfPassengers * this.userData.flightDetail.fare;
+    const passenger = this.userData ? this.userData.noOfPassengers : 0;
+    const fare = this.userData ? this.userData.flightDetail.fare : 0;
+    this.totalFare = passenger * fare;
     this.dynamicForm = this.formBuilder.group({
       phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       tickets: new FormArray([])
     });
-    this.onChangeTickets(this.userData.noOfPassengers);
-    console.log(this.dynamicForm.value);
+    this.onChangeTickets(passenger);
   }
 
   // convenience getters for easy access to form fields
@@ -68,15 +66,12 @@ export class BookingComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.dynamicForm.invalid) {
       return;
-
     }
     if (this.dynamicForm.valid) {
       this.show = true;
-
     }
   }
 
@@ -88,18 +83,16 @@ export class BookingComponent implements OnInit {
       flightScheduleId: this.userData.flightDetail.flightScheduleId,
       emailId: this.dynamicForm.value.email,
       phoneNumber: this.dynamicForm.value.phone,
-      noOfPassengers: this.userData.noOfPassengers,
+      noOfPassengers: this.userData.noOfPassengers ,
       paymentType: this.paymentOpt.name,
       totalFare: this.totalFare,
       passagerList: this.dynamicForm.value.tickets
     };
-    console.log('id', data.flightScheduleId);
     this.api.postCall(this.url.urlConfig().ticketBook, data, 'post').subscribe( resp => {
       // tslint:disable-next-line:no-string-literal
       if (resp['statusCode'] === 200) {
         // tslint:disable-next-line:no-string-literal
         this.messageService.add({ severity: 'success', summary: 'success', detail: resp['message'] + resp['ticketId'] });
-
       }
     });
   }
